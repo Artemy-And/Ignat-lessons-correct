@@ -3,6 +3,12 @@ import "./App.css";
 import Hello from "./Components/Hello"
 import ThingsToDo from "./Components/ThingsToDo";
 
+import ControlledInputSpanEmptyArray from "./Components/ControlledInputSpanEmptyArray";
+import UncontrolledRating
+  from "../../../react-kabzda-kak-prosto/8-typescript-callbacks/src/components/Rating/UncontrolledRating";
+import UnControlledInputSpanEmptyArray from "./Components/UnControlledInputSpanEmptyArray";
+import { v1 } from "uuid";
+
 export type exampleType = {
   id: number,
   key: number
@@ -17,6 +23,11 @@ export type filterValueType = "all"|"hight" | "middle" | "low";
 
 const App = () => {
 
+    let [title, setTitle] = useState<string>('');
+
+
+
+
   let [example, setExample] = useState([
     {id:1,key:55, n: "Work", p: "Hight"},
     {id:2,key:55, n: "Chill", p: "Middle"},
@@ -26,6 +37,8 @@ const App = () => {
   ]);
 
   let[filter, setFilter] = useState<filterValueType>("all");
+
+
 
   function removeExample(id:number) {
     let filtredExample = example.filter(t => t.id !== id);
@@ -52,7 +65,11 @@ filterValue = example.filter(thing=>thing.p==="Hight")
     <div>
     <ThingsToDo example={filterValue} removeExample={removeExample} changeFilter={changeFilter}/>
 
-    </div>
+    </div><br/><br/>
+<div>
+        <ControlledInputSpanEmptyArray value={title} setTitle={setTitle} />
+        {/*<UnControlledInputSpanEmptyArray />*/}
+</div>
       </div>
   )
 };
