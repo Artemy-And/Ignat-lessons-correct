@@ -1,0 +1,11 @@
+/*.inputNya{*/
+/*  border: 1px solid #999;*/
+/*  border-radius: 15px;*/
+/*}*/
+input{
+  border: 1px solid #999;
+  border-radius: 15px;
+}
+button{
+  border-radius: 20px;
+}
