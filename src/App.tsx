@@ -8,7 +8,7 @@ import ControlledInputSpanEmptyArrayMy from "./Components/ControlledInputSpanEmp
 import UncontrolledRating from "../../../react-kabzda-kak-prosto/8-typescript-callbacks/src/components/Rating/UncontrolledRating";
 import UnControlledInputSpanEmptyArray from "./Components/UnControlledInputSpanEmptyArray";
 import { v1 } from "uuid";
-import InputNya, { InputNyaPropsType } from "./Components/InputNya";
+
 
 export type exampleType = {
   id: number;
@@ -56,9 +56,7 @@ const App = () => {
   if (filter === "low") {
     filterValue = example.filter((thing) => thing.p === "Low");
   }
-const onEnterFunct=()=>{
-    console.log('hello world')
-}
+
   return (
     <div>
       <Hello name="Artemy" surname="Andruschak" />
@@ -77,7 +75,7 @@ const onEnterFunct=()=>{
         {/*<UnControlledInputSpanEmptyArray />*/}
       </div>
       <div><br /><br /><br />
-      <InputNya onEnter={onEnterFunct} error={'error'}/>
+
       </div>
     </div>
   );

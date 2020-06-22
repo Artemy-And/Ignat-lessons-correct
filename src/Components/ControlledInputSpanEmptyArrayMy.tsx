@@ -1,10 +1,12 @@
-import React, { ChangeEvent, useState, KeyboardEvent } from "react";
+import React, {ChangeEvent, useState, KeyboardEvent} from "react";
 
-import { v1 } from "uuid";
+import {v1} from "uuid";
+import InputNya from "./InputNya";
+import BtnMy from "./BtnMy";
 
 type inputSpanEmptyArrayType = {
-  value: string;
-  setTitle: (value: string) => void;
+    value: string;
+    setTitle: (value: string) => void;
 };
 
 // - добавьте в проект с домашками: инпут, кнопку, спан и пустой массив
@@ -15,77 +17,88 @@ type inputSpanEmptyArrayType = {
 // - отобразите в спане количество объектов (имён)
 
 function ControlledInputSpanEmptyArrayMy(props: inputSpanEmptyArrayType) {
-  let [arr, setArr] = useState<Array<{ id: string; name: string }>>([]);
+    let [arr, setArr] = useState<Array<{ id: string; name: string }>>([]);
 
-  function removeTask(id: string) {
-    let filteredNames = arr.filter(t => t.id != id);
-    setArr(filteredNames);
-  }
-
-
-  let setTitle = (event: ChangeEvent<HTMLInputElement>) => {
-    props.setTitle(event.currentTarget.value);
-  };
-
-  let onClickMethod1 = () => {
-    if (props.value != "") {
-      onCLickMethod(props.value);
-      const newObj = {
-        id: v1(),
-        name: props.value,
-      };
-      setArr([...arr, newObj]);
-      props.setTitle("");
-    } else {
-      alert("Please fill in the input");
+    function removeTask(id: string) {
+        let filteredNames = arr.filter(t => t.id != id);
+        setArr(filteredNames);
     }
-  };
 
-  let arrNames = arr.map((name) => {
-    return <div key={name.id}>
-      <p>{name.name}</p>
-      <button onClick={()=>{
-        removeTask(name.id)
-      }
-      }>Remove</button>
-    </div>;
-  });
-  let onKeyPressMethod = (event: KeyboardEvent) => {
-    if (event.charCode === 13) {
-      onClickMethod1();
+
+    let setTitle = (event: ChangeEvent<HTMLInputElement>) => {
+        props.setTitle(event.currentTarget.value);
+    };
+
+    let onClickMethod1 = () => {
+        if (props.value != "") {
+            onCLickMethod(props.value);
+            const newObj = {
+                id: v1(),
+                name: props.value,
+            };
+            setArr([...arr, newObj]);
+            props.setTitle("");
+        } else {
+            alert("Please fill in the input");
+        }
+    };
+
+    let arrNames = arr.map((name) => {
+        return <div key={name.id}>
+            <p>{name.name}</p>
+            <button onClick={() => {
+                removeTask(name.id)
+            }
+            }>Remove
+            </button>
+        </div>;
+    });
+    let onKeyPressMethod = (event: KeyboardEvent) => {
+        if (event.charCode === 13) {
+            onClickMethod1();
+        }
+    };
+
+
+    const onEnterFunct = () => {
+        console.log('hello world')
     }
-  };
 
 
+    return (
+
+        <div>
+            <div>
+                {/*<input*/}
+                {/*    type="text"*/}
+                {/*    value={props.value}*/}
+                {/*    onChange={setTitle}*/}
+                {/*    onKeyPress={onKeyPressMethod}*/}
+                {/*/>*/}
+                {/*<button onClick={onClickMethod1}>ADD</button>*/}
 
 
+                <InputNya onKeyPressMethod={onKeyPressMethod}
+                          type="text"
+                          error={'error'}
+                          onChange={setTitle}
+                          value={props.value}
+                          
+                          
+                />
 
+                <BtnMy onClick={onClickMethod1}/>
 
+                <span>{arrNames}</span>
+            </div>
 
+        </div>
 
-  return (
-      <div>
-    <div>
-
-
-      <input
-        type="text"
-        value={props.value}
-        onChange={setTitle}
-        onKeyPress={onKeyPressMethod}
-      />
-
-      <button onClick={onClickMethod1}>ADD</button>
-
-      <span>{arrNames}</span>
-    </div>
-
-      </div>
-
-  );
+    );
 }
+
 let onCLickMethod = (value: string) => {
-  alert("Hello " + value);
+    alert("Hello " + value);
 };
 
 

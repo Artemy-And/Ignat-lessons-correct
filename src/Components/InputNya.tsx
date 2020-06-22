@@ -1,12 +1,16 @@
-import React, {InputHTMLAttributes, useState, DetailedHTMLProps, ButtonHTMLAttributes} from "react";
+import React, {InputHTMLAttributes, useState, DetailedHTMLProps, ButtonHTMLAttributes, ChangeEvent} from "react";
 import s from "./Input.module.css"
 
 
+// - нужно было сделать отдельно компоненту
+// MyInput и отдельно MyButton
+// и ими заменить стандартные инпуты и кнопки
+// из предыдущих дз и использовать в будущих дз вместо стандартных
+// - handlePress = (e: any) // any
 
 
-export type ButtonNyaPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 export type InputNyaPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
-    & { onEnter?: () => void, error?: string };
+    & { onEnter?: () => void, error?: string, onChange:(event: ChangeEvent<HTMLInputElement>)=>void,value:string, onKeyPressMethod:(type:any)=>void};
 
 function InputNya(props: InputNyaPropsType) {
 
@@ -18,17 +22,19 @@ function InputNya(props: InputNyaPropsType) {
 
 
 
+
     }
     return (
         <div>
             <input
                 className={s.inputNya}
-                type="text"
-                onKeyPress={handlePress}
+                type={restProps.type}
+                onKeyPress={props.onKeyPressMethod}
+                value={restProps.value}
+                onChange={restProps.onChange}
                 placeholder={"Need smth to add"}
 
             />
-            <button className={s.myBtn}>Add</button>
             <span>{error}</span>
         </div>
     );
