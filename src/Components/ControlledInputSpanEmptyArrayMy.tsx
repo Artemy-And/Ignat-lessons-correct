@@ -1,8 +1,9 @@
 import React, {ChangeEvent, useState, KeyboardEvent} from "react";
 
 import {v1} from "uuid";
-import InputNya from "./InputNya";
-import BtnMy from "./BtnMy";
+
+import InputNyaNew from "./InputNyaNew";
+import ButtonNyaNew from "./ButtonNyaNew ";
 
 type inputSpanEmptyArrayType = {
     value: string;
@@ -78,16 +79,14 @@ function ControlledInputSpanEmptyArrayMy(props: inputSpanEmptyArrayType) {
                 {/*<button onClick={onClickMethod1}>ADD</button>*/}
 
 
-                <InputNya onKeyPressMethod={onKeyPressMethod}
-                          type="text"
-                          error={'error'}
-                          onChange={setTitle}
-                          value={props.value}
-                          
-                          
-                />
 
-                <BtnMy onClick={onClickMethod1}/>
+                <InputNyaNew onKeyPressMethod={onKeyPressMethod}
+                             type="text"
+                             error={'error'}
+                             onChange={setTitle}
+                             value={props.value} />
+
+                <ButtonNyaNew onClick={onClickMethod1} />
 
                 <span>{arrNames}</span>
             </div>

@@ -8,6 +8,8 @@ import ControlledInputSpanEmptyArrayMy from "./Components/ControlledInputSpanEmp
 import UncontrolledRating from "../../../react-kabzda-kak-prosto/8-typescript-callbacks/src/components/Rating/UncontrolledRating";
 import UnControlledInputSpanEmptyArray from "./Components/UnControlledInputSpanEmptyArray";
 import { v1 } from "uuid";
+import InputNyaNew from "./Components/InputNyaNew"
+import ButtonNyaNew from "./Components/ButtonNyaNew ";
 
 
 export type exampleType = {
@@ -73,6 +75,7 @@ const App = () => {
         {/*<ControlledInputSpanEmptyArray value={title} setTitle={setTitle} />*/}
         <ControlledInputSpanEmptyArrayMy value={title} setTitle={setTitle} />
         {/*<UnControlledInputSpanEmptyArray />*/}
+
       </div>
       <div><br /><br /><br />
 
