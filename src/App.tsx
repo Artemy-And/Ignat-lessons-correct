@@ -10,6 +10,10 @@ import UnControlledInputSpanEmptyArray from "./Components/UnControlledInputSpanE
 import { v1 } from "uuid";
 import InputNyaNew from "./Components/InputNyaNew"
 import ButtonNyaNew from "./Components/ButtonNyaNew ";
+import Junior from "./Components/5lesson/Junior";
+import JuniorPlus from "./Components/5lesson/JuniorPlus";
+import PreJunior from "./Components/5lesson/PreJunior";
+import { Link, Router, BrowserRouter, Route, HashRouter } from "react-router-dom";
 
 
 export type exampleType = {
@@ -60,7 +64,9 @@ const App = () => {
   }
 
   return (
+      <HashRouter>
     <div>
+
       <Hello name="Artemy" surname="Andruschak" />
       <div>
         <ThingsToDo
@@ -80,7 +86,12 @@ const App = () => {
       <div><br /><br /><br />
 
       </div>
+<Route path={"/juniorPlus"} render={() => <JuniorPlus message={"JuniorPlus"}  />}/>
+<Route path={"/junior"} render={() => <Junior message={"Junior"} />}/>
+<Route path={"/preJunior"} render={() =>  <PreJunior message={"PreJunior"} />}/>
+
     </div>
+      </HashRouter>
   );
 };
 
