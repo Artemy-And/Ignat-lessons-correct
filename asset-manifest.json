@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Ignat-lessons-correct/static/css/main.de584836.chunk.css",
-    "main.js": "/Ignat-lessons-correct/static/js/main.9cab67bc.chunk.js",
-    "main.js.map": "/Ignat-lessons-correct/static/js/main.9cab67bc.chunk.js.map",
+    "main.js": "/Ignat-lessons-correct/static/js/main.f04d313e.chunk.js",
+    "main.js.map": "/Ignat-lessons-correct/static/js/main.f04d313e.chunk.js.map",
     "runtime-main.js": "/Ignat-lessons-correct/static/js/runtime-main.417361d6.js",
     "runtime-main.js.map": "/Ignat-lessons-correct/static/js/runtime-main.417361d6.js.map",
     "static/js/2.f3bbf3c2.chunk.js": "/Ignat-lessons-correct/static/js/2.f3bbf3c2.chunk.js",
     "static/js/2.f3bbf3c2.chunk.js.map": "/Ignat-lessons-correct/static/js/2.f3bbf3c2.chunk.js.map",
     "index.html": "/Ignat-lessons-correct/index.html",
-    "precache-manifest.73cef0c5ce29843a5b7b12525e3318d3.js": "/Ignat-lessons-correct/precache-manifest.73cef0c5ce29843a5b7b12525e3318d3.js",
+    "precache-manifest.dbd31022aad1fd4d0c294523f6e802e5.js": "/Ignat-lessons-correct/precache-manifest.dbd31022aad1fd4d0c294523f6e802e5.js",
     "service-worker.js": "/Ignat-lessons-correct/service-worker.js",
     "static/css/main.de584836.chunk.css.map": "/Ignat-lessons-correct/static/css/main.de584836.chunk.css.map",
     "static/js/2.f3bbf3c2.chunk.js.LICENSE.txt": "/Ignat-lessons-correct/static/js/2.f3bbf3c2.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.417361d6.js",
     "static/js/2.f3bbf3c2.chunk.js",
     "static/css/main.de584836.chunk.css",
-    "static/js/main.9cab67bc.chunk.js"
+    "static/js/main.f04d313e.chunk.js"
   ]
 }
