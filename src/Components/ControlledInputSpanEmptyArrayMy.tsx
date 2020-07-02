@@ -2,13 +2,14 @@ import React, {ChangeEvent, useState, KeyboardEvent} from "react";
 
 import {v1} from "uuid";
 
-import InputNyaNew from "./InputNyaNew";
+import InputNyaNew, {InputNyaPropsType} from "./InputNyaNew";
 import ButtonNyaNew from "./ButtonNyaNew ";
 
 type inputSpanEmptyArrayType = {
     value: string;
     setTitle: (value: string) => void;
 };
+
 
 // - добавьте в проект с домашками: инпут, кнопку, спан и пустой массив
 // - сделайте инпут контролируемым: (useState, value, onChange)
@@ -27,6 +28,7 @@ function ControlledInputSpanEmptyArrayMy(props: inputSpanEmptyArrayType) {
 
 
     let setTitle = (event: ChangeEvent<HTMLInputElement>) => {
+        // debugger
         props.setTitle(event.currentTarget.value);
     };
 
@@ -54,39 +56,30 @@ function ControlledInputSpanEmptyArrayMy(props: inputSpanEmptyArrayType) {
             </button>
         </div>;
     });
-    let onKeyPressMethod = (event: KeyboardEvent) => {
-        if (event.charCode === 13) {
-            onClickMethod1();
-        }
-    };
 
 
-    const onEnterFunct = () => {
-        console.log('hello world')
-    }
+
+    const onKeyPressProps = () => {
+        onClickMethod1();
+}
+
 
 
     return (
 
         <div>
             <div>
-                {/*<input*/}
-                {/*    type="text"*/}
-                {/*    value={props.value}*/}
-                {/*    onChange={setTitle}*/}
-                {/*    onKeyPress={onKeyPressMethod}*/}
-                {/*/>*/}
-                {/*<button onClick={onClickMethod1}>ADD</button>*/}
 
 
+                <InputNyaNew
+                    type="text"
+                    error={'error'}
+                    onChange={setTitle}
+                    value={props.value}
+                    onKeyPressProps={onKeyPressProps}
+                />
 
-                <InputNyaNew onKeyPressMethod={onKeyPressMethod}
-                             type="text"
-                             error={'error'}
-                             onChange={setTitle}
-                             value={props.value} />
-
-                <ButtonNyaNew onClick={onClickMethod1} />
+                <ButtonNyaNew onClick={onClickMethod1} nameOfBtn={"add"}/>
 
                 <span>{arrNames}</span>
             </div>
