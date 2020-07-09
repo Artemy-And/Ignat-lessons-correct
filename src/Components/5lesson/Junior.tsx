@@ -3,9 +3,12 @@ import Hello from "../Hello";
 import ThingsToDo from "../ThingsToDo";
 import {filterValueType} from "../../App";
 import ControlledInputSpanEmptyArrayMy from "../ControlledInputSpanEmptyArrayMy";
+import EditableSpan from "../6lesson/Common/EditableSpan";
+import {restoreState, saveState} from "../6lesson/NewLocalStorage";
 
 
 function Junior(props: any) {
+    let [value, setValue] = useState<string>("")
     let [title, setTitle] = useState<string>("");
 
     let [example, setExample] = useState([
@@ -36,6 +39,17 @@ function Junior(props: any) {
     if (filter === "low") {
         filterValue = example.filter((thing) => thing.p === "Low");
     }
+
+
+    const saveState1 = () => {
+        saveState('local title', value)
+    }
+
+    function restoreState1() {
+        let stateFromLocalStorage = restoreState("local title", value);
+        setValue(stateFromLocalStorage)
+    }
+
     return <div>
         <h1>{props.message}</h1>
         <Hello name="Artemy" surname="Andruschak"/>
@@ -49,6 +63,12 @@ function Junior(props: any) {
         <div>
             {/*<ControlledInputSpanEmptyArray value={title} setTitle={setTitle} />*/}
             <ControlledInputSpanEmptyArrayMy value={title} setTitle={setTitle}/>
+            <EditableSpan value={value} setValue={setValue}/>
+            {/*<EditableSpan value={value} setValue={setValue}/>*/}
+            <div>
+                <button onClick={saveState1}>SAVE</button>
+                <button onClick={restoreState1}>RESTORE</button>
+            </div>
             {/*<UnControlledInputSpanEmptyArray />*/}
 
         </div>
