@@ -3,8 +3,8 @@ import Hello from "../Hello";
 import ThingsToDo from "../ThingsToDo";
 import {filterValueType} from "../../App";
 import ControlledInputSpanEmptyArrayMy from "../ControlledInputSpanEmptyArrayMy";
-import EditableSpan from "../6lesson/Common/EditableSpan";
-import {restoreState, saveState} from "../6lesson/NewLocalStorage";
+import EditableSpan from "../6-7lesson/Common/EditableSpan";
+import {restoreState, saveState} from "../6-7lesson/NewLocalStorage";
 
 
 function Junior(props: any) {

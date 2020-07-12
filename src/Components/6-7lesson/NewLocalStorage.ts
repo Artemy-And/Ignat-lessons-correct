@@ -7,7 +7,7 @@ export function saveState<T>(key: string, state: T) {//****************поче�
 
 // * и вот вам функция для получения сохранённого объекта в памяти браузера:
 export function restoreState<T>(key: string, defaultState: T) {
-    debugger
+
     const stateAsString = localStorage.getItem(key);
     if (stateAsString !== null) defaultState = JSON.parse(stateAsString) as T;
     return defaultState;
