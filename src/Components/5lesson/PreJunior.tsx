@@ -17,10 +17,10 @@ function PreJunior(props: any) {
     const [currentValue, setCurrentValue] = useState();
 
     let [itemRadio, setItemRadio] = useState([
-        {value: "male", name: "John", checked: false},
-        {value: "male", name: "Bendjamin", checked: false},
-        {value: "female", name: "Volerma", checked: true},
-        {value: "female", name: "Insignia", checked: false},
+        {id: "male", name: "John", checked: false},
+        {id: "male", name: "Bendjamin", checked: false},
+        {id: "female", name: "Volerma", checked: true},
+        {id: "female", name: "Insignia", checked: false},
 
     ])
     // let [radioCurrentValue, setRadioCurrentValue] = useState<boolean>()

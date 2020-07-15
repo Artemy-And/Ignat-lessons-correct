@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FormEvent} from "react";
 
 type radioType = {
-    value: string
+    id: string
     name: string
     checked: boolean
 }
@@ -15,18 +15,19 @@ type allRadioType = {
 function Radio(props: allRadioType) {
 
     return (
-        <div><label>
+        <div>
 
             {props.itemRadio.map(el => {
-                return <label key={el.value}>
+                return <label key={el.id}>
                     <input checked={el.checked}
                            onChange={() => props.setRadioCurrentValue(el.name)}
                            type="radio">
 
-                    </input>{el.name}</label>
+                    </input>{el.name}
+                </label>
             })}
 
-        </label></div>
+        </div>
 
     )
 
