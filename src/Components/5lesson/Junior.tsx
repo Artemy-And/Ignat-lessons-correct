@@ -5,11 +5,23 @@ import {filterValueType} from "../../App";
 import ControlledInputSpanEmptyArrayMy from "../ControlledInputSpanEmptyArrayMy";
 import EditableSpan from "../6-7lesson/Common/EditableSpan";
 import {restoreState, saveState} from "../6-7lesson/NewLocalStorage";
+import {stateType} from "../8lesson/homeWorkReducer";
 
 
 function Junior(props: any) {
     let [value, setValue] = useState<string>("")
     let [title, setTitle] = useState<string>("");
+
+
+    let [listOfPeople, setListOfPeople] = useState<Array<stateType>>([
+        {id: "1", name: "Albert", age: 40},
+        {id: "2", name: "George", age: 17},
+        {id: "3", name: "Francia", age: 15},
+        {id: "4", name: "Richard", age: 25},
+        {id: "5", name: "Orlando", age: 32},
+    ])
+    let [newlistOfPeople, setNewlistOfPeople] = useState()
+
 
     let [example, setExample] = useState([
         {id: 1, key: 55, n: "Work", p: "Hight"},
@@ -50,6 +62,25 @@ function Junior(props: any) {
         setValue(stateFromLocalStorage)
     }
 
+
+    const onCLickSortAllow18Years = () => {
+        let stateCopy = [...listOfPeople]
+        stateCopy = stateCopy.filter((el => el.age > 18))
+        setListOfPeople(stateCopy)
+    }
+    const onCLickSortUp = () => {
+        let stateCopy = [...listOfPeople]
+        stateCopy = stateCopy.sort((a, b) => a.name.localeCompare(b.name))
+        setListOfPeople(stateCopy)
+    }
+
+    const onClickSortDown = () => {
+        let stateCopy = [...listOfPeople]
+        stateCopy = stateCopy.sort((a, b) => a.name.localeCompare(b.name))
+            .reverse()
+        setListOfPeople(stateCopy)
+
+    }
     return <div>
         <h1>{props.message}</h1>
         <Hello name="Artemy" surname="Andruschak"/>
@@ -72,6 +103,18 @@ function Junior(props: any) {
             {/*<UnControlledInputSpanEmptyArray />*/}
 
         </div>
+
+        <div><h2>TASK 8</h2>
+            <span>{listOfPeople.map(el =>
+                <div key={el.id}>{el.name} {el.age} Age</div>
+            )}</span>
+            <div>{newlistOfPeople}</div>
+            <br></br>
+            <button onClick={onCLickSortAllow18Years}>SORT Who older 18</button>
+            <button onClick={onCLickSortUp}>SORT UP</button>
+            <button onClick={onClickSortDown}>SORT DOWN</button>
+        </div>
+
     </div>
 }
 

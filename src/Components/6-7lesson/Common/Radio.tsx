@@ -21,9 +21,7 @@ function Radio(props: allRadioType) {
                 return <label key={el.id}>
                     <input checked={el.checked}
                            onChange={() => props.setRadioCurrentValue(el.name)}
-                           type="radio">
-
-                    </input>{el.name}
+                           type="radio"/>{el.name}
                 </label>
             })}
 

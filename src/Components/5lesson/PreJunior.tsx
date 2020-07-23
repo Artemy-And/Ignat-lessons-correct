@@ -23,7 +23,7 @@ function PreJunior(props: any) {
         {id: "female", name: "Insignia", checked: false},
 
     ])
-    // let [radioCurrentValue, setRadioCurrentValue] = useState<boolean>()
+
 
     const functionRadioChecked = (name: string) => {
         const newItem = itemRadio.map(item => {
