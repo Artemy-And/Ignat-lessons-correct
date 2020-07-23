@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e1fd555f32356f5f15bcef6d5a7175b6",
+    "revision": "33f183541282b0be0c039d0d918b25fc",
     "url": "/Ignat-lessons-correct/index.html"
   },
   {
-    "revision": "1b48ade7def23319fbc7",
+    "revision": "c6f9b2d4a72e8699ebfd",
     "url": "/Ignat-lessons-correct/static/css/main.dc30b712.chunk.css"
   },
   {
-    "revision": "9de0d1ac5303931dc576",
-    "url": "/Ignat-lessons-correct/static/js/2.69f8b582.chunk.js"
+    "revision": "3d7b5c0025b26240eb19",
+    "url": "/Ignat-lessons-correct/static/js/2.2b2cad2e.chunk.js"
   },
   {
     "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/Ignat-lessons-correct/static/js/2.69f8b582.chunk.js.LICENSE.txt"
+    "url": "/Ignat-lessons-correct/static/js/2.2b2cad2e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1b48ade7def23319fbc7",
-    "url": "/Ignat-lessons-correct/static/js/main.04a2f30e.chunk.js"
+    "revision": "c6f9b2d4a72e8699ebfd",
+    "url": "/Ignat-lessons-correct/static/js/main.f26a0831.chunk.js"
   },
   {
     "revision": "06bfacb84636dd587961",
