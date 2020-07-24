@@ -1,64 +1,53 @@
-import React from "react"
-
 export type stateType = {
     id: string
     name: string
     age: number
 }
 
+type sortedArrayUpDownACtype = {
+    type: 'SORTED-UP-DOWN-ARRAY'
+    payload: string
+}
 
-type sortedArrayUpACtype = {
-    type: 'SORTED-UP-ARRAY'
-    payload: string
-}
-type sortedArrayDownACtype = {
-    type: 'SORTED-DOWN-ARRAY'
-    payload: string
-}
-type sortedAgeArrayACtype={
+type sortedAgeArrayACtype = {
     type: 'SORTED-AGE-ARRAY'
-    payload: string
+    payload: number
 }
 
 
-type actionType = sortedArrayUpACtype|sortedArrayDownACtype|sortedAgeArrayACtype
+type actionType = sortedArrayUpDownACtype | sortedAgeArrayACtype
 
 
 export const hwReducer = (state: Array<stateType>, action: actionType): Array<stateType> => {
-        let stateCopy = [...state]
-        switch (action.type) {
-            case 'SORTED-UP-ARRAY':
+    let stateCopy = [...state]
+    switch (action.type) {
+        case 'SORTED-UP-DOWN-ARRAY':
 
-                    stateCopy= stateCopy.sort((a, b) => a.name.localeCompare(b.name))
+            if (action.payload == "up") {
+                stateCopy = stateCopy.sort((a, b) => a.name.localeCompare(b.name))
                 return stateCopy
-
-            case 'SORTED-DOWN-ARRAY':
-
-                    stateCopy= stateCopy.sort((a, b) => a.name.localeCompare(b.name))
-                    .reverse()
+            } else if (action.payload == "down") {
+                stateCopy = stateCopy.sort((a, b) => a.name.localeCompare(b.name)).reverse()
                 return stateCopy
-
-            case "SORTED-AGE-ARRAY":
-                stateCopy = stateCopy.filter((el => el.age > 18))
-                return stateCopy
+            }
+            return stateCopy
 
 
-            default:
-                throw new Error("I do not undarstand this action type")
-
-        }
-    };
+        case "SORTED-AGE-ARRAY":
+            stateCopy = stateCopy.filter((el => el.age > action.payload))
+            return stateCopy
 
 
-export const sortedUpArrayAC = (payload: string): sortedArrayUpACtype => {
-    return {type: 'SORTED-UP-ARRAY', payload: payload}
+        default:
+            throw new Error("I do not undarstand this action type")
+
+    }
+};
+
+
+export const sortedUpDownArrayAC = (payload: 'up' | 'down'): sortedArrayUpDownACtype => {
+    return {type: 'SORTED-UP-DOWN-ARRAY', payload: payload}
 }
-
-
-export const sortedDownArrayAC = (payload: string): sortedArrayDownACtype => {
-    return {type: 'SORTED-DOWN-ARRAY', payload: payload}
-}
-
-export const sortedAgeArrayAC = (payload: string): sortedAgeArrayACtype => {
+export const sortedAgeArrayAC = (payload: number): sortedAgeArrayACtype => {
     return {type: 'SORTED-AGE-ARRAY', payload: payload}
 }
