@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, {useReducer, useState} from "react";
 import Hello from "../Hello";
 import ThingsToDo from "../ThingsToDo";
 import {filterValueType} from "../../App";
 import ControlledInputSpanEmptyArrayMy from "../ControlledInputSpanEmptyArrayMy";
 import EditableSpan from "../6-7lesson/Common/EditableSpan";
 import {restoreState, saveState} from "../6-7lesson/NewLocalStorage";
-import {stateType} from "../8lesson/homeWorkReducer";
+import {hwReducer, sortedAgeArrayAC, sortedUpDownArrayAC, stateType} from "../8lesson/homeWorkReducer";
+import moment from "moment";
+import {Tooltip} from "@material-ui/core";
 
 
 function Junior(props: any) {
@@ -13,16 +15,7 @@ function Junior(props: any) {
     let [title, setTitle] = useState<string>("");
 
 
-    let [listOfPeople, setListOfPeople] = useState<Array<stateType>>([
-        {id: "1", name: "Albert", age: 40},
-        {id: "2", name: "George", age: 17},
-        {id: "3", name: "Francia", age: 15},
-        {id: "4", name: "Richard", age: 25},
-        {id: "5", name: "Orlando", age: 32},
-    ])
     let [newlistOfPeople, setNewlistOfPeople] = useState()
-
-
     let [example, setExample] = useState([
         {id: 1, key: 55, n: "Work", p: "Hight"},
         {id: 2, key: 55, n: "Chill", p: "Middle"},
@@ -51,8 +44,6 @@ function Junior(props: any) {
     if (filter === "low") {
         filterValue = example.filter((thing) => thing.p === "Low");
     }
-
-
     const saveState1 = () => {
         saveState('local title', value)
     }
@@ -62,25 +53,52 @@ function Junior(props: any) {
         setValue(stateFromLocalStorage)
     }
 
+//////////////******************8task************///////////////
+
+    let [listOfPeople, dispatch] = useReducer(hwReducer, [
+        {id: "1", name: "Albert", age: 40},
+        {id: "2", name: "George", age: 17},
+        {id: "3", name: "Francia", age: 15},
+        {id: "4", name: "Richard", age: 25},
+        {id: "5", name: "Orlando", age: 32},
+    ])
+
 
     const onCLickSortAllow18Years = () => {
-        let stateCopy = [...listOfPeople]
-        stateCopy = stateCopy.filter((el => el.age > 18))
-        setListOfPeople(stateCopy)
+        dispatch(sortedAgeArrayAC(18))
     }
     const onCLickSortUp = () => {
-        let stateCopy = [...listOfPeople]
-        stateCopy = stateCopy.sort((a, b) => a.name.localeCompare(b.name))
-        setListOfPeople(stateCopy)
+        dispatch(sortedUpDownArrayAC("up"))
     }
-
     const onClickSortDown = () => {
-        let stateCopy = [...listOfPeople]
-        stateCopy = stateCopy.sort((a, b) => a.name.localeCompare(b.name))
-            .reverse()
-        setListOfPeople(stateCopy)
+        dispatch(sortedUpDownArrayAC("down"))
+    }
+
+
+    //////////////******************9task************///////////////
+
+    let datePopUp = moment().format("DD-MM-YYYY")
+
+    let [date, setDate] = useState<any>({
+        date: new Date()
+    })
+    let [timerId, setTimerId] = useState<any>(null)
+
+
+    let callMe = () => {
+        clearInterval(timerId)
+        let timer_id = setInterval(() => {
+            setDate({date: new Date()})
+        }, 1000)
+        setTimerId(timer_id);
+    }
+    let callMeStopToStop = () => {
+        clearInterval(timerId)
+
 
     }
+
+
     return <div>
         <h1>{props.message}</h1>
         <Hello name="Artemy" surname="Andruschak"/>
@@ -105,6 +123,7 @@ function Junior(props: any) {
         </div>
 
         <div><h2>TASK 8</h2>
+
             <span>{listOfPeople.map(el =>
                 <div key={el.id}>{el.name} {el.age} Age</div>
             )}</span>
@@ -113,9 +132,21 @@ function Junior(props: any) {
             <button onClick={onCLickSortAllow18Years}>SORT Who older 18</button>
             <button onClick={onCLickSortUp}>SORT UP</button>
             <button onClick={onClickSortDown}>SORT DOWN</button>
+
         </div>
+
+
+        <h2>TASK 9</h2>
+        <Tooltip title={datePopUp} aria-label={datePopUp} style={{fontSize: "25px"}}>
+            <span>Current time is: {date.date.toLocaleTimeString()}</span>
+        </Tooltip>
+        <br></br>
+        <button onClick={callMe}>setInterval</button>
+        <button onClick={callMeStopToStop}>clearInterval</button>
+
 
     </div>
 }
 
 export default Junior;
+
