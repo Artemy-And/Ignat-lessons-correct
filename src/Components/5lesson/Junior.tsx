@@ -10,6 +10,10 @@ import moment from "moment";
 import {Tooltip} from "@material-ui/core";
 
 
+import {useDispatch} from "react-redux";
+import {SET_LOADING_FALSE, SET_LOADING_TRUE} from "../10task/unknownReducer";
+
+
 function Junior(props: any) {
     let [value, setValue] = useState<string>("")
     let [title, setTitle] = useState<string>("");
@@ -79,27 +83,40 @@ function Junior(props: any) {
 
     let datePopUp = moment().format("DD-MM-YYYY")
 
-    let [date, setDate] = useState<any>({
+    let [date, setDate] = useState<{ date: Date }>({
         date: new Date()
     })
-    let [timerId, setTimerId] = useState<any>(null)
+    let [timerId, setTimerId] = useState<NodeJS.Timeout>()
 
 
     let callMe = () => {
-        clearInterval(timerId)
+        timerId && clearInterval(timerId)
         let timer_id = setInterval(() => {
             setDate({date: new Date()})
         }, 1000)
         setTimerId(timer_id);
     }
     let callMeStopToStop = () => {
-        clearInterval(timerId)
+        timerId && clearInterval(timerId)
+    }
 
+    //////////////******************10task************///////////////
+    const OnclickTrue = () => {
+        props.dispatch({type: SET_LOADING_TRUE})
+        console.log(props.loading)
 
+        setTimeout(() => {
+            props.dispatch({type: SET_LOADING_FALSE})
+        }, 2000)
+    }
+
+    const onCLickFalse = () => {
+        props.dispatch({type: SET_LOADING_FALSE})
     }
 
 
     return <div>
+
         <h1>{props.message}</h1>
         <Hello name="Artemy" surname="Andruschak"/>
         <div>
@@ -133,6 +150,7 @@ function Junior(props: any) {
             <button onClick={onCLickSortUp}>SORT UP</button>
             <button onClick={onClickSortDown}>SORT DOWN</button>
 
+
         </div>
 
 
@@ -143,6 +161,9 @@ function Junior(props: any) {
         <br></br>
         <button onClick={callMe}>setInterval</button>
         <button onClick={callMeStopToStop}>clearInterval</button>
+
+        <h2>TASK 10</h2>
+        <button onClick={OnclickTrue}>TRUE</button>
 
 
     </div>

@@ -17,6 +17,14 @@ type sortedAgeArrayACtype = {
 
 type actionType = sortedArrayUpDownACtype | sortedAgeArrayACtype
 
+// let initialState:Array<stateType> = [
+//     {id: "1", name: "Albert", age: 40},
+//     {id: "2", name: "George", age: 30},
+//     {id: "3", name: "Francia", age: 20},
+//     {id: "4", name: "Richard", age: 25},
+//     {id: "5", name: "Orlando", age: 32},
+// ]
+
 
 export const hwReducer = (state: Array<stateType>, action: actionType): Array<stateType> => {
     let stateCopy = [...state]
