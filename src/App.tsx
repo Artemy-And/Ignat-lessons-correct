@@ -32,13 +32,11 @@ const App = () => {
 
 
 
-    console.log(loading)
-    console.log(loading)
     return (
 
         <HashRouter>
 
-            {loading === true? <div><Toggle/></div> :
+            {loading? <div><Toggle/></div> :
                 <>
                     <Route path={"/juniorPlus"} render={() => <JuniorPlus message={"JuniorPlus"}/>}/>
                     <Route path={"/junior"} render={() => <Junior message={"Junior"}

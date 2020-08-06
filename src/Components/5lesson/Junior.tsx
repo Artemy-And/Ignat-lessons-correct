@@ -11,14 +11,13 @@ import {Tooltip} from "@material-ui/core";
 
 
 import {useDispatch} from "react-redux";
-import {SET_LOADING_FALSE, SET_LOADING_TRUE} from "../10task/unknownReducer";
+import {SET_LOADING_FALSE, SET_LOADING_TRUE, setLoadingFalse, setLoadingTrue} from "../10task/unknownReducer";
 
 
 function Junior(props: any) {
+
     let [value, setValue] = useState<string>("")
     let [title, setTitle] = useState<string>("");
-
-
     let [newlistOfPeople, setNewlistOfPeople] = useState()
     let [example, setExample] = useState([
         {id: 1, key: 55, n: "Work", p: "Hight"},
@@ -28,16 +27,13 @@ function Junior(props: any) {
         {id: 5, key: 55, n: "HTML", p: "low"},
     ]);
     let [filter, setFilter] = useState<filterValueType>("all");
-
     function removeExample(id: number) {
         let filtredExample = example.filter((t) => t.id !== id);
         setExample(filtredExample);
     }
-
     function changeFilter(value: filterValueType) {
         setFilter(value);
     }
-
     let filterValue = example;
     if (filter === "hight") {
         filterValue = example.filter((thing) => thing.p === "Hight");
@@ -66,8 +62,6 @@ function Junior(props: any) {
         {id: "4", name: "Richard", age: 25},
         {id: "5", name: "Orlando", age: 32},
     ])
-
-
     const onCLickSortAllow18Years = () => {
         dispatch(sortedAgeArrayAC(18))
     }
@@ -82,13 +76,10 @@ function Junior(props: any) {
     //////////////******************9task************///////////////
 
     let datePopUp = moment().format("DD-MM-YYYY")
-
     let [date, setDate] = useState<{ date: Date }>({
         date: new Date()
     })
     let [timerId, setTimerId] = useState<NodeJS.Timeout>()
-
-
     let callMe = () => {
         timerId && clearInterval(timerId)
         let timer_id = setInterval(() => {
@@ -101,14 +92,15 @@ function Junior(props: any) {
     }
 
     //////////////******************10task************///////////////
-    const OnclickTrue = () => {
-        props.dispatch({type: SET_LOADING_TRUE})
-        console.log(props.loading)
 
+    const OnclickTrue = () => {
+        props.dispatch(setLoadingTrue(true))
+        console.log(props.loading)
         setTimeout(() => {
-            props.dispatch({type: SET_LOADING_FALSE})
+            props.dispatch(setLoadingFalse(false))
         }, 2000)
     }
+
 
     const onCLickFalse = () => {
         props.dispatch({type: SET_LOADING_FALSE})

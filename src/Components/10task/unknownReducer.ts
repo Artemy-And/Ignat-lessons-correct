@@ -11,15 +11,15 @@ let initialState = {
     loading: false
 }
 
-function loadingReducer(state: initialStateType = initialState, action: allACTypes) {
+function loadingReducer(state: initialStateType = initialState, action: allACTypes):initialStateType {
     switch (action.type) {
         case SET_LOADING:
             return {...state, loading: action.loading}
         case SET_LOADING_TRUE:
-            return {...state, loading: action.loading == true}
+            return {...state, loading: action.loading}
 
         case SET_LOADING_FALSE:
-            return {...state,loading: action.loading == false}
+            return {...state,loading: action.loading}
         default:
 
             return state
