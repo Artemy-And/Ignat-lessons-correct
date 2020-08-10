@@ -1,21 +1,20 @@
-import React, {useReducer, useState} from "react";
+import React, {useCallback, useReducer, useState} from "react";
 import Hello from "../Hello";
 import ThingsToDo from "../ThingsToDo";
 import {filterValueType} from "../../App";
 import ControlledInputSpanEmptyArrayMy from "../ControlledInputSpanEmptyArrayMy";
-import EditableSpan from "../6-7lesson/Common/EditableSpan";
+import EditableSpan from "../Common/EditableSpan";
 import {restoreState, saveState} from "../6-7lesson/NewLocalStorage";
 import {hwReducer, sortedAgeArrayAC, sortedUpDownArrayAC, stateType} from "../8lesson/homeWorkReducer";
 import moment from "moment";
 import {Tooltip} from "@material-ui/core";
+import {Range} from "./../Common/Range"
 
-
-import {useDispatch} from "react-redux";
 import {SET_LOADING_FALSE, SET_LOADING_TRUE, setLoadingFalse, setLoadingTrue} from "../10task/unknownReducer";
 
 
-function Junior(props: any) {
-
+const Junior = React.memo((props: any) => {
+    console.log('джуниор')
     let [value, setValue] = useState<string>("")
     let [title, setTitle] = useState<string>("");
     let [newlistOfPeople, setNewlistOfPeople] = useState()
@@ -27,13 +26,17 @@ function Junior(props: any) {
         {id: 5, key: 55, n: "HTML", p: "low"},
     ]);
     let [filter, setFilter] = useState<filterValueType>("all");
+
+
     function removeExample(id: number) {
         let filtredExample = example.filter((t) => t.id !== id);
         setExample(filtredExample);
     }
+
     function changeFilter(value: filterValueType) {
         setFilter(value);
     }
+
     let filterValue = example;
     if (filter === "hight") {
         filterValue = example.filter((thing) => thing.p === "Hight");
@@ -100,11 +103,29 @@ function Junior(props: any) {
             props.dispatch(setLoadingFalse(false))
         }, 2000)
     }
-
-
     const onCLickFalse = () => {
         props.dispatch({type: SET_LOADING_FALSE})
     }
+    ////////************RANGE 11 task*************//////////
+    const [valueSlifer, setValueSlider] = useState<number | string>(30);
+    const [minValue, setMinValue] = useState(10)
+    const [maxValue, setMaxValue] = useState(85)
+
+    const handleSliderChange = useCallback((event: any, newValue: any) => {
+        setValueSlider(newValue);
+    }, []);
+
+    const handleInputChange = useCallback((event: any) => {
+        props.setValueSlider(event.target.value === '' ? '' : Number(event.target.value));
+    }, []);
+
+    const handleBlur = useCallback(() => {
+        if (props.value < 0) {
+            props.setValueSlider(0);
+        } else if (props.value > 100) {
+            props.setValueSlider(100);
+        }
+    }, []);
 
 
     return <div>
@@ -132,7 +153,6 @@ function Junior(props: any) {
         </div>
 
         <div><h2>TASK 8</h2>
-
             <span>{listOfPeople.map(el =>
                 <div key={el.id}>{el.name} {el.age} Age</div>
             )}</span>
@@ -144,9 +164,8 @@ function Junior(props: any) {
 
 
         </div>
-
-
         <h2>TASK 9</h2>
+
         <Tooltip title={datePopUp} aria-label={datePopUp} style={{fontSize: "25px"}}>
             <span>Current time is: {date.date.toLocaleTimeString()}</span>
         </Tooltip>
@@ -157,9 +176,13 @@ function Junior(props: any) {
         <h2>TASK 10</h2>
         <button onClick={OnclickTrue}>TRUE</button>
 
+        <h1>TASK 11</h1>
+
+        <Range value={valueSlifer} maxValue={maxValue} onChange={handleSliderChange} minValue={minValue}
+               handleInputChange={handleInputChange} handleBlur={handleBlur}/>
 
     </div>
-}
+})
 
 export default Junior;
 

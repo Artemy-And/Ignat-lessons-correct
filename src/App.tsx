@@ -35,7 +35,7 @@ const App = () => {
     return (
 
         <HashRouter>
-
+<div>
             {loading? <div><Toggle/></div> :
                 <>
                     <Route path={"/juniorPlus"} render={() => <JuniorPlus message={"JuniorPlus"}/>}/>
@@ -47,6 +47,7 @@ const App = () => {
                     <Navbar/>
                 </>
             }
+</div>
 
             {/*<button onClick={onClickFalse}>FALSE</button>*/}
 

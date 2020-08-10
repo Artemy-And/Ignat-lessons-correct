@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import Select from "../6-7lesson/Common/Select";
+import Select from "../Common/Select";
 import {v1} from "uuid";
-import Radio from "../6-7lesson/Common/Radio";
+import Radio from "../Common/Radio";
 
 
 function PreJunior(props: any) {
