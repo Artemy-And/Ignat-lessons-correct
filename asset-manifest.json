@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/typescript-project/static/css/main.77db0e83.chunk.css",
-    "main.js": "/typescript-project/static/js/main.ca605c11.chunk.js",
-    "main.js.map": "/typescript-project/static/js/main.ca605c11.chunk.js.map",
+    "main.js": "/typescript-project/static/js/main.41ed5e61.chunk.js",
+    "main.js.map": "/typescript-project/static/js/main.41ed5e61.chunk.js.map",
     "runtime-main.js": "/typescript-project/static/js/runtime-main.0b3bb232.js",
     "runtime-main.js.map": "/typescript-project/static/js/runtime-main.0b3bb232.js.map",
     "static/js/2.24294f08.chunk.js": "/typescript-project/static/js/2.24294f08.chunk.js",
     "static/js/2.24294f08.chunk.js.map": "/typescript-project/static/js/2.24294f08.chunk.js.map",
     "index.html": "/typescript-project/index.html",
-    "precache-manifest.baed14004e568cc46016771074e7c4b0.js": "/typescript-project/precache-manifest.baed14004e568cc46016771074e7c4b0.js",
+    "precache-manifest.e7cfb633c4920f84dcb2a3fb2f49af9d.js": "/typescript-project/precache-manifest.e7cfb633c4920f84dcb2a3fb2f49af9d.js",
     "service-worker.js": "/typescript-project/service-worker.js",
     "static/css/main.77db0e83.chunk.css.map": "/typescript-project/static/css/main.77db0e83.chunk.css.map",
     "static/js/2.24294f08.chunk.js.LICENSE.txt": "/typescript-project/static/js/2.24294f08.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.0b3bb232.js",
     "static/js/2.24294f08.chunk.js",
     "static/css/main.77db0e83.chunk.css",
-    "static/js/main.ca605c11.chunk.js"
+    "static/js/main.41ed5e61.chunk.js"
   ]
 }
