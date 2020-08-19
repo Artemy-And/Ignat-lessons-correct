@@ -18,7 +18,7 @@ const Navbar = () => {
                 <NavLink to="/junior">Junior</NavLink><br></br>
 
 
-                <NavLink to="/juniorPlus">JuniorPLus</NavLink><br></br>
+                <NavLink to="/juniorPlusWithRedux">JuniorPLus</NavLink><br></br>
 
 
                 <NavLink to="/preJunior">Pre Junior</NavLink>

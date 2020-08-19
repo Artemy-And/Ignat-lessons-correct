@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Select from "../Common/Select";
-import {v1} from "uuid";
 import Radio from "../Common/Radio";
 
 
@@ -37,12 +36,15 @@ function PreJunior(props: any) {
     }
 
 
-    console.log(currentValue)
+
 
 
     return (<div>
             <h1>{props.message}</h1>
-            <Select items={items} value={currentValue} setCurrentValue={setCurrentValue}/>
+            <Select items={items} value={currentValue}
+                    setColor={()=>{}}
+                    // setCurrentValue={setCurrentValue}
+            />
             <Radio itemRadio={itemRadio} setRadioCurrentValue={functionRadioChecked}/>
         </div>
     )

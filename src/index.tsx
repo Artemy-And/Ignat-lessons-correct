@@ -11,8 +11,4 @@ ReactDOM.render(
     <App />
     </Provider>, document.getElementById("root"));
 
-let a = {
-  name: "Artemy",
-  age: 30,
-};
 

@@ -9,7 +9,8 @@ type listType = {
 type listAllType = {
     items: Array<listType>
 value: string
-    setCurrentValue: (value: string) => void
+    // setCurrentValue: (value: string) => void
+    setColor:any
 }
 
 
@@ -17,8 +18,9 @@ value: string
 function Select(props: listAllType) {
 
 
+    let [currentValue, setCurrentValue] = useState<string>("");
     const onChangeFunct = (e: ChangeEvent<HTMLSelectElement>) => {
-        props.setCurrentValue(e.currentTarget.value)
+       setCurrentValue(e.currentTarget.value)
     }
 
 
@@ -26,7 +28,7 @@ function Select(props: listAllType) {
 
             <select
                 value={props.value}
-                onChange={onChangeFunct}
+                onChange={props.setColor}
 
             >
                 {props.items.map(item => (
