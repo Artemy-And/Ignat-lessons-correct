@@ -4,9 +4,11 @@ import themeReducer from "../Components/12task/themeReducer";
 
 
 
+
 let reducers = combineReducers({
     loading: loadingReducer,
-    theme:themeReducer
+    theme:themeReducer,
+
 
 })
 

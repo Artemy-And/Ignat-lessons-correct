@@ -5,6 +5,7 @@ import classes from "../5lesson/JuniorPlus.module.css";
 import Select from "../Common/Select";
 import {setColorAC} from "./themeReducer";
 import {restoreState, saveState} from "./LocalStorageForJuniorPlus";
+import {Request} from "../13task/Request";
 
 
 type itemsType = {
@@ -43,12 +44,13 @@ export const JuniorPlusWithRedux = () => {
 
 
     return (<div>
-
-
-        <h1 className={currentValue == "green" ? classes.green : ""
-        || currentValue === "purple" ? classes.purple : ""
-        || currentValue === "white" ? classes.white : ""
-        || currentValue === "dark" ? classes.dark : ""}>1111</h1>
+{/************    сокращенная запись     ************/}
+        <h1 className={classes[currentValue]}>1111</h1>
+        {/************   не сокращенная запись     ************/}
+        {/*<h1 className={currentValue == "green" ? classes.green : ""*/}
+        {/*|| currentValue === "purple" ? classes.purple : ""*/}
+        {/*|| currentValue === "white" ? classes.white : ""*/}
+        {/*|| currentValue === "dark" ? classes.dark : ""}>1111</h1>*/}
         <h4>Please choose theme color</h4>
 
         <Select items={items}
@@ -59,6 +61,13 @@ export const JuniorPlusWithRedux = () => {
         || currentValue === "purple" ? classes.purpleBTN : ""
         || currentValue === "white" ? classes.whiteBTN : ""
         || currentValue === "dark" ? classes.darkBTN : ""} onClick={()=>{saveState1()}}>SAVE COLOR</button>
+
+       <Request/>
+
+
+
+
+
 
     </div>)
 }
